@@ -37,8 +37,7 @@ public class SecurityConfig {
                         .requestMatchers(HttpMethod.OPTIONS, "/**").permitAll() // Permite pre-flight requests de CORS
                         // Permite que CUALQUIERA vea los productos y los outfits
                         .requestMatchers(HttpMethod.GET, "/api/products", "/api/products/**").permitAll()
-                        .requestMatchers(HttpMethod.POST, "/api/products/chat").permitAll()                        .requestMatchers(HttpMethod.GET, "/api/outfits", "/api/outfits/**").permitAll()
-                        .requestMatchers(HttpMethod.GET, "/api/stores", "/api/stores/**").permitAll()
+                        .requestMatchers(HttpMethod.POST, "/api/products/chat").hasAnyRole("ADMIN", "CLIENT", "VENDOR")                        .requestMatchers(HttpMethod.GET, "/api/stores", "/api/stores/**").permitAll()
                         .requestMatchers("/api/auth/login", "/api/auth/register").permitAll()
                         .requestMatchers(HttpMethod.POST, "/api/reservations", "/api/reservations/**")
                         .hasAnyRole("CLIENT", "ADMIN")
@@ -66,9 +65,9 @@ public class SecurityConfig {
                 "http://localhost:5173", // Vite dev server
                 "http://127.0.0.1:3000",
                 "http://127.0.0.1:5173",
-                "http://127.0.0.1:5500",
-                "https://front-cloutfit.vercel.app", // Frontend en Vercel
-                "newvitrinavirtual-production.up.railway.app" // Dominio dinámico del backend en Railway
+                "http://127.0.0.1:5500"
+                // "https://front-cloutfit.vercel.app", // Frontend en Vercel
+                // "newvitrinavirtual-production.up.railway.app" // Dominio dinámico del backend en Railway
         ));
 
         // Métodos HTTP permitidos
