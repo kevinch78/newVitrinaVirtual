@@ -37,7 +37,7 @@ public class SecurityConfig {
                         .requestMatchers(HttpMethod.OPTIONS, "/**").permitAll() // Permite pre-flight requests de CORS
                         // Permite que CUALQUIERA vea los productos y los outfits
                         .requestMatchers(HttpMethod.GET, "/api/products", "/api/products/**").permitAll()
-                        .requestMatchers(HttpMethod.POST, "/api/products/chat/**").permitAll()
+                        .requestMatchers(HttpMethod.POST, "/api/products/chat").permitAll()                        .requestMatchers(HttpMethod.GET, "/api/outfits", "/api/outfits/**").permitAll()
                         .requestMatchers(HttpMethod.GET, "/api/stores", "/api/stores/**").permitAll()
                         .requestMatchers("/api/auth/login", "/api/auth/register").permitAll()
                         .requestMatchers(HttpMethod.POST, "/api/reservations", "/api/reservations/**")
