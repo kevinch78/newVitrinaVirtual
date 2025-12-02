@@ -168,7 +168,7 @@ public class ProductController {
     }
 
     @PostMapping("/chat")
-    @PreAuthorize("hasAnyAuthority('ROLE_ADMIN', 'ROLE_CLIENT', 'ROLE_VENDOR')")
+    // @PreAuthorize("hasAnyAuthority('ROLE_ADMIN', 'ROLE_CLIENT', 'ROLE_VENDOR')")
     public ResponseEntity<OutfitRecommendation> generateOutfitFromChat(
             @RequestParam String gender,
             @RequestBody Map<String, String> request,
